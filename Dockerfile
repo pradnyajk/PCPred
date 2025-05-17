@@ -20,11 +20,13 @@ RUN R -e "remotes::install_version('caret', version = '7.0-1', repos = 'http://c
     && R -e "remotes::install_version('naivebayes', version = '1.0.0', repos = 'http://cran.r-project.org')"
 
 # Set working directory inside container
-WORKDIR /app
+WORKDIR /PCPred
 
 # Copy prediction script and models
 COPY prediction_pc_docker.R models.RData ./
 
+WORKDIR /WorkPlace
+
 # Entry point: run your prediction script
-ENTRYPOINT ["Rscript", "prediction_pc_docker.R"]
+ENTRYPOINT ["Rscript", "/PCPred/prediction_pc_docker.R"]
 
