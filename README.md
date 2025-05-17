@@ -61,8 +61,9 @@ docker build -t pcpred .
 #### On Linux/Windows/macOS terminal
 ```bash
 docker run --rm -v "${PWD}:/WorkPlace" pcpred sample_data.csv
+
 ```
-> **_NOTE:_**  Replace your_input.csv with the path to your actual .csv file.
+> **_NOTE:_**  Replace sample_data.csv with the path to your actual .csv file.
 
 ## Prediction Results
 The output file pancreatic_cancer_prediction.csv will be generated in the same directory as your input. It includes:
