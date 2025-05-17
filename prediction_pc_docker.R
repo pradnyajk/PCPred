@@ -2,7 +2,7 @@
 library(caret)     # version 7.0-1
 
 # Load trained models
-load("models.RData")
+load("/PCPred/models.RData")
 
 # Accept input CSV file as an argument
 args <- commandArgs(trailingOnly = TRUE)
@@ -77,4 +77,4 @@ result <- cbind.data.frame(
 )
 
 # Save result to CSV
-write.csv(result, file = "pancreatic_cancer_prediction.csv", row.names = FALSE)
+write.csv(result, file = "/WorkPlace/pancreatic_cancer_prediction.csv", row.names = FALSE)

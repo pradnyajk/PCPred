@@ -1,9 +1,9 @@
 # PCPred
 
-**PCPred** is ML based classification model to predict given sample is pancreatic cancer or normal.
-This repository provides a Docker-based machine learning pipeline to classify whether a given gene expression sample corresponds to pancreatic cancer or a normal condition. It includes trained models and an R script to make reproducible predictions in any environment using Docker.
+- **PCPred** is ML based classification model to predict given sample is pancreatic cancer or normal. 
+- This repository provides a Docker-based machine learning pipeline to classify whether a given gene expression sample corresponds to pancreatic cancer or a normal condition. It includes trained models and an R script to make reproducible predictions in any environment using Docker.
 
-## Contents
+## Repository Contents
 
 The files contained in this repository are as follows:
 
@@ -13,10 +13,13 @@ The files contained in this repository are as follows:
 - `sample_data.csv` : Sample gene expression input file  
 - `Data/TrainData.rds` : Original training dataset used to develop the models  
 
+
 ## Prerequisites
 
 - Install [Docker](https://www.docker.com/) on your system.
-- R is not needed on your local machine, it's inside the container.
+- Input Data
+	- Your input data must follow the specified format.
+	- A sample input file (`sample_data.csv`) is provided in the repository for reference.
 
 ## Input Data Format
 
@@ -24,8 +27,27 @@ The input should be a `.csv` file with **log2-normalized gene expression values*
 CEACAM5, CEACAM6,	CTSE,	GALNT5,	LAMB3,	LAMC2,	SLC6A14,	TMPRSS4,	TSPAN1,	ITGA2,	ITGB6,	POSTN,	IAPP
 > **_NOTE:_** Refer to `sample_data.csv`
 
+
 ## Usage
 
+Users have the following two options:
+
+- **Use Prebuilt Image**  
+    Pull and run the Docker image directly from the registry.
+    
+- **Build Image Locally**  
+    Clone the repository and build the Docker image on your local machine.
+
+
+### Use Prebuild Image
+```bash
+docker run --rm -v "${PWD}:/WorkPlace" ghcr.io/tanmay3371/pcpred:latest sample_data.csv
+```
+Replace sample_data.csv with your input file
+
+### OR
+
+### Build Image Locally
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/PGlab-NIPER/PCPred.git
@@ -38,11 +60,12 @@ docker build -t pcpred .
 ### 3. Run the Prediction
 #### On Linux/Windows/macOS terminal
 ```bash
-docker run --rm -v "${PWD}:/app" pcpred sample_data.csv
+docker run --rm -v "${PWD}:/WorkPlace" pcpred sample_data.csv
+
 ```
 > **_NOTE:_**  Replace sample_data.csv with the path to your actual .csv file.
 
-### 4. Prediction Results
+## Prediction Results
 The output file pancreatic_cancer_prediction.csv will be generated in the same directory as your input. It includes:
 * Predictions from each model
 * A majority vote results from all the models
@@ -78,5 +101,3 @@ DOI={...},
 ISSN={}
 }
 ```
-
-
