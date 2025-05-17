@@ -1,6 +1,6 @@
 # PCPred
 
-- PCPred is ML based classification model to predict given sample is pancreatic cancer or normal. 
+- **PCPred** is ML based classification model to predict given sample is pancreatic cancer or normal. 
 - This repository provides a Docker-based machine learning pipeline to classify whether a given gene expression sample corresponds to pancreatic cancer or a normal condition. It includes trained models and an R script to make reproducible predictions in any environment using Docker.
 
 ## Repository Contents
