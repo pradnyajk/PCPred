@@ -60,9 +60,9 @@ The container uses the following R setup:
 
 ## GEO dataset 
 The file Data/TrainData.rds contains the dataset used to train the included models. It was compiled using log2-normalized microarray gene expression values from the following public GEO datasets:
-* GSE28735 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28735
-* GSE62452 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62452
-* GSE183795 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183795
+* [GSE28735](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28735)
+* [GSE62452](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62452)
+* [GSE183795](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183795)
 
 ## Citation
 If you use  **PCPred** in your publication, consider citing the [paper]([https://pubmed.ncbi.nlm.nih.gov/.../]):
