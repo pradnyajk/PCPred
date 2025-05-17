@@ -16,7 +16,7 @@ The files contained in this repository are as follows:
 ## Prerequisites
 
 - Install [Docker](https://www.docker.com/) on your system.
-- R is not needed on your local machine — it's inside the container.
+- R is not needed on your local machine, it's inside the container.
 
 ## Input Data Format
 
