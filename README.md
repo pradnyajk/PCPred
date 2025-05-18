@@ -45,7 +45,7 @@ docker run --rm -v "${PWD}:/WorkPlace" ghcr.io/tanmay3371/pcpred:latest sample_d
 ```
 Replace sample_data.csv with your input file
 
-### OR
+### ***OR***
 
 ### Build Image Locally
 ### 1. Clone the Repository
