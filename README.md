@@ -73,6 +73,7 @@ The Docker container uses the following R configuration:
 * R Version: 4.4.2
 * caret: 7.0-1
 * kernlab: 0.9-33
+* class: 7.3-22
 * xgboost: 1.7.8.1
 * randomForest: 4.7-1.2
 * gbm: 2.2.2
