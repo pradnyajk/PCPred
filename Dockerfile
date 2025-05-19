@@ -14,6 +14,7 @@ RUN R -e "install.packages('remotes', repos = 'http://cran.r-project.org')"
 # Install required R packages with specific versions
 RUN R -e "remotes::install_version('caret', version = '7.0-1', repos = 'http://cran.r-project.org')" \
     && R -e "remotes::install_version('kernlab', version = '0.9-33', repos = 'http://cran.r-project.org')" \
+    && R -e "remotes::install_version('class', version = '7.3-22', repos = 'http://cran.r-project.org')" \
     && R -e "remotes::install_version('xgboost', version = '1.7.8.1', repos = 'http://cran.r-project.org')" \
     && R -e "remotes::install_version('randomForest', version = '4.7-1.2', repos = 'http://cran.r-project.org')" \
     && R -e "remotes::install_version('gbm', version = '2.2.2', repos = 'http://cran.r-project.org')" \
