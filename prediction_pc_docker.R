@@ -1,5 +1,6 @@
 # Required Libraries
 library(caret)     # version 7.0-1
+library(class)
 
 # Load trained models
 load("/PCPred/models.RData")
@@ -79,7 +80,7 @@ result <- cbind.data.frame(
   SGB = pred_gbm_model_test,
   XGB = pred_xg_boost_test,
   NB = pred_nb_model_test,
-  Majority_Vote_from_5_models = final_prediction
+  Majority_Vote_from_6_models = final_prediction
 )
 
 # Save result to CSV
