@@ -2,7 +2,7 @@
 library(caret)     # version 7.0-1
 
 # Load trained models
-load("models.RData")
+load("/PCPred/models.RData")
 
 # Accept input CSV file as an argument
 args <- commandArgs(trailingOnly = TRUE)
@@ -63,11 +63,12 @@ probs$majority_vote <- apply(probs, 1, get_majority_vote)
 final_prediction <- probs$majority_vote
 
 # Print results
-cat("-----------------------------------------------------------------------------------------------------\n")
-cat("Predicted outcome for provided sample(s):\n")
+cat("-----------------------------------------------------------------------------------------------------\n\n")
+cat("Predicted outcome for provided sample(s):\n\n")
 print(final_prediction)
-cat("\nPlease see the file 'pancreatic_cancer_prediction.csv' generated in the working directory.\n")
-cat("-----------------------------------------------------------------------------------------------------\n")
+cat("\nPlease see the file 'pancreatic_cancer_prediction.csv' generated in the working directory.\n\n")
+cat("-----------------------------------------------------------------------------------------------------\n\n")
+
 
 # Prepare result
 result <- cbind.data.frame(
@@ -82,7 +83,7 @@ result <- cbind.data.frame(
 )
 
 # Save result to CSV
-write.csv(result, file = "pancreatic_cancer_prediction.csv", row.names = FALSE)
+write.csv(result, file = "/WorkPlace/pancreatic_cancer_prediction.csv", row.names = FALSE)
 
 
 
