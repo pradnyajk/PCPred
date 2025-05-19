@@ -85,7 +85,7 @@ result <- cbind.data.frame(
 # Save result to CSV
 write.csv(result, file = "/WorkPlace/pancreatic_cancer_prediction.csv", row.names = FALSE)
 
-
+#V2
 
 
 
