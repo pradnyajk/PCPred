@@ -35,7 +35,6 @@ svm_radial1
 pred_svm_radialtrain1 <- predict(svm_radial1, newdata = TrainData[,1:independent_variable_nos])
 pred_svm_radialtest1 <- predict(svm_radial1, newdata = TestData[,1:independent_variable_nos] )
 
-
 # knn
 
 # using classs library
@@ -192,19 +191,11 @@ pred_xg_boost_test <- predict(xg_boost, TestData[,1:independent_variable_nos])
 # NB - Naive Bayes (NB) ****bad***
 library(klaR)
 set.seed(7)
-
-# Grid = expand.grid(usekernel=TRUE,adjust=1,fL=c(0.2,0.5,0.8))
-# Grid = data.frame(usekernel=TRUE,adjust=c(0,0.5,1.0),fL=c(0,0.5,1.0))
-# nb <- train(Type~., data = TrainData, trControl = train_control, method = 'nb',
-#                metric = "accuracy", importance = TRUE) #tuneGrid = Grid)
-# # 
-# modelLookup("naive_bayes")
-# modelLookup("naive_bayes")
 library(naivebayes)
 
 nb_model <- train(Type~., data = TrainData, trControl = tune_control, tuneGrid = expand.grid(
   usekernel = c(TRUE, FALSE), laplace = 0.3, adjust = c(0,0.5,1.0)),FL = 0, method = 'naive_bayes')
 nb_model$bestTune   
-# plot(nb)
+
 pred_nb_model_train <- predict(nb_model, TrainData)
 pred_nb_model_test <- predict(nb_model, TestData)
