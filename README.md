@@ -38,7 +38,7 @@ Users have two options to use this tool:
 
 ### Option 1: Use Prebuilt Image
 ```bash
-docker run --rm -v "${PWD}:/WorkPlace" ghcr.io/tanmay3371/pcpred:latest sample_data.csv
+docker run --rm -v "${PWD}:/WorkPlace" ghcr.io/tanmaykumarvarma/pcpred:latest sample_data.csv
 ```
 Replace sample_data.csv with your input file
 
