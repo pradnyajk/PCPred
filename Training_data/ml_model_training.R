@@ -34,11 +34,6 @@ svm_radial1 <- train(Type ~., data = TrainData, method = "svmRadial",
 svm_radial1
 pred_svm_radialtrain1 <- predict(svm_radial1, newdata = TrainData[,1:independent_variable_nos])
 pred_svm_radialtest1 <- predict(svm_radial1, newdata = TestData[,1:independent_variable_nos] )
-cm_svm_radial_train1 <- confusionMatrix(TrainData$Type, pred_svm_radialtrain1, positive = 'tumor', mode = "everything")
-cm_svm_radial_test1 <- confusionMatrix(TestData$Type, pred_svm_radialtest1, positive = 'tumor', mode = "everything")
-cm_svm_radial_train1
-cm_svm_radial_test1
-
 
 # knn
 
@@ -54,12 +49,6 @@ knn_pred_train_class <- knn(train = TrainData[,1:independent_variable_nos],test 
 knn_pred_train_class
 knn_pred_test_class <- knn(train = TrainData[,1:independent_variable_nos],test= TestData[,1:independent_variable_nos],
                            cl = TrainData$Type, k = appropriate_kvalue)
-
-cm_knn_train_class <- confusionMatrix(TrainData$Type, knn_pred_train_class, positive = 'tumor', mode = "everything")
-cm_knn_test_class <- confusionMatrix(TestData$Type, knn_pred_test_class, positive = 'tumor', mode = "everything")
-cm_knn_train_class
-cm_knn_test_class
-
 # select a optimum k value
 # for train
 j=1
@@ -92,11 +81,6 @@ knn_pred_train_class_optk <- knn(train = TrainData[,1:independent_variable_nos],
 
 knn_pred_test_class_optk <- knn(train = TrainData[,1:independent_variable_nos],test= TestData[,1:independent_variable_nos],
                                 cl = TrainData$Type, k = optimum_k_value)
-
-cm_knn_train_class_optk <- confusionMatrix(TrainData$Type, knn_pred_train_class_optk, positive = 'tumor', mode = "everything")
-cm_knn_test_class_optk <- confusionMatrix(TestData$Type, knn_pred_test_class_optk, positive = 'tumor', mode = "everything")
-cm_knn_train_class_optk
-cm_knn_test_class_optk
 # -----------------------------------------------------------------------------------------------
 
 # RF models
@@ -177,11 +161,6 @@ fit_rf <- train(Type~.,
 
 pred_rf_tune_tr <- predict(fit_rf, TrainData[,1:independent_variable_nos])
 pred_rf_tune_te <- predict(fit_rf, TestData[,1:independent_variable_nos])
-cm_pred_rf_tune_tr <- confusionMatrix(pred_rf_tune_tr, TrainData$Type, positive = 'tumor', mode = "everything")
-cm_pred_rf_tune_te <- confusionMatrix(pred_rf_tune_te, TestData$Type, positive = 'tumor', mode = "everything")
-cm_pred_rf_tune_tr 
-cm_pred_rf_tune_te
-
 #---------------------------------------------------------------------------------------------------------------------------
 # GBM - Stochastic Gradient Boosting
 library(gbm)
@@ -191,8 +170,6 @@ gbm_model <- train(TrainData[,1:independent_variable_nos], TrainData$Type, metho
                    trControl = train_control, verbose = FALSE)
 pred_gbm_model_train <- predict(gbm_model , TrainData[,1:independent_variable_nos])
 pred_ggbm_model_test <- predict(gbm_model , TestData[,1:independent_variable_nos])
-cm_pred_gbm_model_train <- confusionMatrix(pred_gbm_model_train, TrainData$Type, positive = 'tumor', mode = "everything")
-cm_pred_gbm_model_test <- confusionMatrix(pred_ggbm_model_test, TestData$Type, positive = 'tumor', mode = "everything")
 #---------------------------------------------------------------------------------------------------------------------------
 # xgboost
 library(xgboost)
@@ -210,43 +187,15 @@ xg_boost <- train(Type~., data = TrainData, trControl = train_control, tuneGrid=
 
 pred_xg_boost_train <- predict(xg_boost, TrainData[,1:independent_variable_nos])
 pred_xg_boost_test <- predict(xg_boost, TestData[,1:independent_variable_nos])
-cm_pred_xg_boost_train <- confusionMatrix(pred_xg_boost_train, TrainData$Type, positive = 'tumor', mode = "everything")
-cm_pred_xg_boost_test <- confusionMatrix(pred_xg_boost_test, TestData$Type, positive = 'tumor', mode = "everything")
-cm_pred_xg_boost_train
-cm_pred_xg_boost_test
 #----------------------------------------------------------------------------------------------------
 # NB - Naive Bayes (NB) ****bad***
 library(klaR)
 set.seed(7)
-
-# Grid = expand.grid(usekernel=TRUE,adjust=1,fL=c(0.2,0.5,0.8))
-# Grid = data.frame(usekernel=TRUE,adjust=c(0,0.5,1.0),fL=c(0,0.5,1.0))
-# nb <- train(Type~., data = TrainData, trControl = train_control, method = 'nb',
-#                metric = "accuracy", importance = TRUE) #tuneGrid = Grid)
-# # 
-# modelLookup("naive_bayes")
-# modelLookup("naive_bayes")
 library(naivebayes)
 
 nb_model <- train(Type~., data = TrainData, trControl = tune_control, tuneGrid = expand.grid(
   usekernel = c(TRUE, FALSE), laplace = 0.3, adjust = c(0,0.5,1.0)),FL = 0, method = 'naive_bayes')
 nb_model$bestTune   
-# plot(nb)
+
 pred_nb_model_train <- predict(nb_model, TrainData)
 pred_nb_model_test <- predict(nb_model, TestData)
-cm_pred_nb_model_train <- confusionMatrix(pred_nb_model_train, TrainData$Type, positive = 'tumor', mode = "everything")
-cm_pred_nb_model_test <- confusionMatrix(pred_nb_model_test, TestData$Type, positive = 'tumor', mode = "everything")
-cm_pred_nb_model_train
-cm_pred_nb_model_test
-
-
-
-
-
-
-
-
-
-
-
-

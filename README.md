@@ -73,6 +73,7 @@ The Docker container uses the following R configuration:
 * R Version: 4.4.2
 * caret: 7.0-1
 * kernlab: 0.9-33
+* class: 7.3-22
 * xgboost: 1.7.8.1
 * randomForest: 4.7-1.2
 * gbm: 2.2.2
@@ -86,16 +87,7 @@ The model was trained on log2-normalized gene expression data, compiled from the
 The processed and combined dataset used for model training is available in ``Data/TrainData.rds``.
 
 ## Citation
-If you use  **PCPred** in your publication, consider citing the [paper]([https://pubmed.ncbi.nlm.nih.gov/.../]):
+If you use  **PCPred** in your publication, consider citing the [paper](https://pubmed.ncbi.nlm.nih.gov/40522604/):
 ```
-@ARTICLE{,
-AUTHOR={Pradnya Kamble, Tanmaykumar Varma, Rajender Kumar, and Prabha Garg},   
-TITLE={Computational Theranostics Strategy for Pancreatic Ductal Adenocarcinoma},      
-JOURNAL={..,},      
-VOLUME={},           
-YEAR={2025},     
-URL={https://pubmed.ncbi.nlm.nih.gov/...},       
-DOI={...},      	
-ISSN={}
-}
+Kamble, P., Varma, T., Kumar, R. et al. Computational theranostics strategy for pancreatic ductal adenocarcinoma. Mol Divers (2025). https://doi.org/10.1007/s11030-025-11241-3
 ```
