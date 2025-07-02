@@ -87,7 +87,7 @@ The model was trained on log2-normalized gene expression data, compiled from the
 The processed and combined dataset used for model training is available in ``Data/TrainData.rds``.
 
 ## Citation
-If you use  **PCPred** in your publication, consider citing the [paper]([https://pubmed.ncbi.nlm.nih.gov/40522604/]):
+If you use  **PCPred** in your publication, consider citing the [paper](https://pubmed.ncbi.nlm.nih.gov/40522604/):
 ```
 Kamble, P., Varma, T., Kumar, R. et al. Computational theranostics strategy for pancreatic ductal adenocarcinoma. Mol Divers (2025). https://doi.org/10.1007/s11030-025-11241-3
 ```
